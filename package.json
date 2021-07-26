@@ -1,0 +1,48 @@
+{
+  "name": "comparison-shopping",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "Shopping comparison website",
+  "main": "index.js",
+  "scripts": {
+    "start": "node backend/server.js",
+    "start-dev": "nodemon --watch backend --exec node --experimental-modules backend/server.js",
+    "build": "rm -rf dist && babel backend -d dist",
+    "heroku-postbuild": "npm run build && cd frontend && npm install && npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "author": "Debasri Dasgupta",
+  "license": "ISC",
+  "bugs": {
+    "url": ""
+  },
+  "homepage": "",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "express-async-handler": "^1.1.4",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.10.7",
+    "mongoose-paginate": "^5.0.3",
+    "mongoose-paginate-v2": "^1.4.1",
+    "multer": "^1.4.2",
+    "url": "^0.11.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.12.8",
+    "@babel/core": "^7.12.9",
+    "@babel/node": "^7.12.6",
+    "@babel/preset-env": "^7.12.7",
+    "eslint": "^7.9.0",
+    "eslint-plugin-react": "^7.21.2",
+    "nodemon": "^2.0.4"
+  },
+  "engines": {
+    "node": "15.3.0",
+    "npm": "6.14.8"
+  }
+}

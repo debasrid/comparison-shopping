@@ -6,14 +6,7 @@ import {
   PRODUCT_LIST_FAIL,
   PRODUCT_LIST_REQUEST,
   PRODUCT_LIST_SUCCESS,
-  FETCH_STATE,
 } from '../constants/productConstants';
-
-export const fetchInitialState = () => async (dispatch) => {
-  dispatch({
-    type: FETCH_STATE,
-  });
-};
 
 export const listProducts = ({
   page = 0,

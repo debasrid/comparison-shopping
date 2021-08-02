@@ -43,7 +43,7 @@ export default function HomeScreen() {
       ) : error ? (
         <MessageBox variant="danger">{error}</MessageBox>
       ) : (
-        <>
+        <div>
           {products.length === 0 && <MessageBox>No Product Found</MessageBox>}
           {products.length !== 0 && 
           <Grid container alignContent="center" className={classes.root}>
@@ -55,7 +55,7 @@ export default function HomeScreen() {
             ))}
           </div>
           </Grid>}
-        </>
+        </div>
       )}
       {products.length !== 0 && 
         <div className="row center">

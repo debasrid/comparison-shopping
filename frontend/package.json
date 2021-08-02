@@ -4,21 +4,89 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@babel/plugin-syntax-jsx": "^7.14.5",
     "@material-ui/core": "^4.12.2",
     "@material-ui/lab": "^4.0.0-alpha.60",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
     "axios": "^0.20.0",
-    "node-sass-chokidar": "^1.5.0",
-    "npm-run-all": "^4.1.5",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
-    "react-redux": "^7.2.1",
-    "react-router-dom": "^5.2.0",
-    "react-scripts": "3.4.3",
-    "redux": "^4.0.5",
-    "redux-thunk": "^2.3.0"
+    "autoprefixer": "7.1.1",
+    "babel-core": "^6.26.3",
+    "babel-jest": "20.0.3",
+    "babel-loader": "8.0.1",
+    "babel-preset-react-app": "^3.1.2",
+    "babel-runtime": "6.23.0",
+    "bootstrap": "^4.1.1",
+    "case-sensitive-paths-webpack-plugin": "2.1.2",
+    "chalk": "1.1.3",
+    "css-loader": "0.28.4",
+    "dotenv": "^4.0.0",
+    "extract-text-webpack-plugin": "2.1.2",
+    "file-loader": "2.0.0",
+    "fs-extra": "3.0.1",
+    "html-webpack-plugin": "3.2.0",
+    "jest": "20.0.4",
+    "node-sass-chokidar": "0.0.3",
+    "npm-run-all": "^4.1.3",
+    "object-assign": "4.1.1",
+    "postcss-flexbugs-fixes": "3.0.0",
+    "postcss-loader": "3.0.0",
+    "promise": "7.1.1",
+    "react": "^17.0.2",
+    "react-addons-css-transition-group": "^15.6.2",
+    "react-addons-transition-group": "^15.6.2",
+    "react-dev-utils": "^3.0.2",
+    "react-dom": "^17.0.2",
+    "react-error-overlay": "^1.0.9",
+    "react-redux": "^7.2.4",
+    "react-router": "^4.3.1",
+    "react-router-dom": "^4.3.1",
+    "react-scripts": "^1.1.5",
+    "react-select": "^1.2.1",
+    "redux": "^3.0.0",
+    "redux-logger": "^3.0.6",
+    "redux-thunk": "^2.3.0",
+    "style-loader": "0.23.0",
+    "sw-precache-webpack-plugin": "0.11.5",
+    "url-loader": "1.1.1",
+    "webpack": "4.17.1",
+    "webpack-dev-server": "^3.1.14",
+    "webpack-manifest-plugin": "2.0.3",
+    "whatwg-fetch": "2.0.3"
+  },
+  "devDependencies": {
+    "@babel/core": "7.14.6",
+    "@testing-library/react": "^12.0.0",
+    "@wojtekmaj/enzyme-adapter-react-17": "^0.6.2",
+    "babel-eslint": "10.1.0",
+    "babel-loader": "8.2.2",
+    "babel-preset-react-app": "10.0.0",
+    "css-loader": "5.2.6",
+    "cssnano": "5.0.6",
+    "enzyme": "3.11.0",
+    "eslint": "7.30.0",
+    "eslint-loader": "4.0.2",
+    "eslint-plugin-import": "2.23.4",
+    "eslint-plugin-react": "7.24.0",
+    "fetch-mock": "9.11.0",
+    "html-webpack-plugin": "5.3.2",
+    "http-server": "0.12.3",
+    "json-server": "0.16.3",
+    "mini-css-extract-plugin": "2.1.0",
+    "node-fetch": "^2.6.1",
+    "npm-run-all": "4.1.5",
+    "postcss": "^8.3.5",
+    "postcss-loader": "6.1.1",
+    "react-test-renderer": "17.0.2",
+    "redux-immutable-state-invariant": "2.1.0",
+    "redux-mock-store": "1.5.4",
+    "rimraf": "3.0.2",
+    "style-loader": "3.0.0",
+    "webpack": "4.17.1",
+    "webpack-dev-server": "^3.1.14",
+    "webpack-manifest-plugin": "2.0.3",
+    "whatwg-fetch": "2.0.3"
   },
   "scripts": {
     "build-css": "node-sass-chokidar src/ -o src/",
@@ -26,11 +94,45 @@
     "start-js": "react-scripts start",
     "start": "npm-run-all -p watch-css start-js",
     "build": "npm run build-css && react-scripts build",
-    "test": "node scripts/test.js --env=jsdom",
-    "eject": "react-scripts eject"
+    "test": "node scripts/test.js --env=jsdom"
+  },
+  "babel": {
+    "presets": [
+      "babel-preset-react-app"
+    ]
   },
   "eslintConfig": {
-    "extends": "react-app"
+    "extends": [
+      "eslint:recommended",
+      "plugin:react/recommended",
+      "plugin:import/errors",
+      "plugin:import/warnings"
+    ],
+    "parser": "babel-eslint",
+    "parserOptions": {
+      "ecmaVersion": 2018,
+      "sourceType": "module",
+      "ecmaFeatures": {
+        "jsx": true
+      }
+    },
+    "env": {
+      "browser": true,
+      "node": true,
+      "es6": true,
+      "jest": true
+    },
+    "rules": {
+      "no-debugger": "off",
+      "no-console": "off",
+      "no-unused-vars": "warn",
+      "react/prop-types": "warn"
+    },
+    "settings": {
+      "react": {
+        "version": "detect"
+      }
+    }
   },
   "browserslist": {
     "production": [
